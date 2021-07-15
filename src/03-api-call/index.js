@@ -35,5 +35,12 @@ The expected output is:
  */
 
 module.exports = async function fetchLukeSkywalker() {
-  // TODO
+
+    const fetch = require('node-fetch'); // npm installed node-fetch
+
+    // Tests fails because the api endpoint returns "https" instead of "http"
+    const responseRaw = await fetch('https://swapi.dev/api/people/1/');
+    const responseAsJson = await responseRaw.json();
+
+    return responseAsJson;
 };
